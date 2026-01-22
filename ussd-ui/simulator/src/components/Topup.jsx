@@ -1,41 +1,69 @@
 import { useState } from "react";
 
-const steps = [
-  "Enter Debit Card Number",
-  "Enter Mobile Number",
-  "Enter Amount"
-];
-
 function Topup({ setScreen }) {
-  const [step, setStep] = useState(0);
-  const [value, setValue] = useState("");
+  const [form, setForm] = useState({
+    card: "",
+    mobile: "",
+    amount: "",
+    pin: ""
+  });
 
-  const next = () => {
-    if (step === steps.length - 1) {
-      alert("Top Up Successful");
-      setScreen("menu");
-    } else {
-      setStep(step + 1);
-      setValue("");
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const submit = () => {
+    if (!/^\d{10}$/.test(form.mobile)) {
+      alert("Mobile number must be exactly 10 digits");
+      return;
     }
+
+    if (form.pin.length === 0) {
+      alert("Enter PIN");
+      return;
+    }
+
+    alert("Top-Up Successful");
+    setScreen("menu");
   };
 
   return (
     <div className="phone">
       <div className="screen">
-        {steps[step]}<br />
-        {value || "_"}
+        <b>Top-Up</b><br /><br />
+
+        Debit Card Number:<br />
+        <input
+          name="card"
+          value={form.card}
+          onChange={handleChange}
+        /><br />
+
+        Mobile Number:<br />
+        <input
+          name="mobile"
+          value={form.mobile}
+          onChange={handleChange}
+          placeholder="10-digit number"
+        /><br />
+
+        Amount:<br />
+        <input
+          name="amount"
+          value={form.amount}
+          onChange={handleChange}
+        /><br />
+
+        PIN:<br />
+        <input
+          type="password"
+          name="pin"
+          value={form.pin}
+          onChange={handleChange}
+        />
       </div>
 
-      <div className="keypad">
-        {[..."1234567890"].map((n) => (
-          <button key={n} onClick={() => setValue(value + n)}>
-            {n}
-          </button>
-        ))}
-      </div>
-
-      <button onClick={next}>OK</button>
+      <button onClick={submit}>OK</button>
     </div>
   );
 }

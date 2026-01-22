@@ -1,43 +1,71 @@
 import { useState } from "react";
 
-const steps = [
-  "Enter Name",
-  "Enter Mobile Number",
-  "Enter Debit Card Number",
-  "Enter PIN",
-  "Confirm PIN"
-];
-
 function Register({ setScreen }) {
-  const [step, setStep] = useState(0);
-  const [value, setValue] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    mobile: "",
+    card: "",
+    pin: "",
+    confirmPin: ""
+  });
 
-  const next = () => {
-    if (step === steps.length - 1) {
-      alert("Registration Successful");
-      setScreen("menu");
-    } else {
-      setStep(step + 1);
-      setValue("");
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const submit = () => {
+    if (form.pin !== form.confirmPin) {
+      alert("PINs do not match");
+      return;
     }
+    alert("Registration Successful");
+    setScreen("menu");
   };
 
   return (
     <div className="phone">
       <div className="screen">
-        {steps[step]}<br />
-        {step >= 3 ? "*".repeat(value.length) : value || "_"}
+        <b>Register</b><br /><br />
+
+        Name:<br />
+        <input
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+        /><br />
+
+        Mobile Number:<br />
+        <input
+          name="mobile"
+          value={form.mobile}
+          onChange={handleChange}
+        /><br />
+
+        Debit Card Number:<br />
+        <input
+          name="card"
+          value={form.card}
+          onChange={handleChange}
+        /><br />
+
+        PIN:<br />
+        <input
+          type="password"
+          name="pin"
+          value={form.pin}
+          onChange={handleChange}
+        /><br />
+
+        Confirm PIN:<br />
+        <input
+          type="password"
+          name="confirmPin"
+          value={form.confirmPin}
+          onChange={handleChange}
+        />
       </div>
 
-      <div className="keypad">
-        {[..."1234567890"].map((n) => (
-          <button key={n} onClick={() => setValue(value + n)}>
-            {n}
-          </button>
-        ))}
-      </div>
-
-      <button onClick={next}>OK</button>
+      <button onClick={submit}>OK</button>
     </div>
   );
 }
