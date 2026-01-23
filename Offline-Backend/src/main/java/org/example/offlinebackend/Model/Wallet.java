@@ -13,7 +13,7 @@ public class Wallet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="wallet_id")
-    int id;
+    Long id;
     int balance;
     int reserved_balance;
     String phonenumber;

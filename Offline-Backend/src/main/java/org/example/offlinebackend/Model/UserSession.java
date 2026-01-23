@@ -1,9 +1,6 @@
 package org.example.offlinebackend.Model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +17,7 @@ public class UserSession {
     String phone_number;
     String current_status;
     String message;
+    String user_status;
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 }

@@ -15,7 +15,6 @@ public class ChatController {
     ChatService chatService;
     @PostMapping("api/chat")
      public ChatResponse sendMessage(@RequestBody Chat chat) {
-
         return chatService.ChatHandel(chat);
     }
 }

@@ -11,6 +11,8 @@ public class ChatResponse {
         this.reply = reply;
     }
 
+    public ChatResponse() {}
+
     public ChatResponse(String reply) {
         this.reply = reply;
     }
