@@ -35,13 +35,13 @@ public class ChatService {
 
     public ChatResponse ChatHandel(Chat chat) {
 
-        UserSession session = userSessionRepo
-                .findById(chat.getPhone())
-                .orElseGet(() -> {
-                    UserSession s = new UserSession();
-                    s.setPhone_number(chat.getPhone());
-                    return userSessionRepo.save(s);
-                });
+        UserSession session=userSessionRepo.findById(chat.getPhone()).orElse(null);
+        if(session==null){
+            UserSession session1=new UserSession();
+            session1.setPhone_number(chat.getPhone());
+            userSessionRepo.save(session1);
+            return new ChatResponse(getMainMenu());
+        }
 
         // First-time user → show menu
         if (session.getUser_status() == null) {
@@ -54,11 +54,11 @@ public class ChatService {
         // Wallet existence check
 
         if ("1".equals(option)) {
-            return registerService.handle(session, chat);
+            return registerService.Register(session, chat);
         }
 
         if ("2".equals(option)) {
-            //return walletService.handle(session, chat);
+            return walletService.Transaction(session, chat);
         }
 
         if ("3".equals(option)) {
@@ -72,8 +72,7 @@ public class ChatService {
         if ("5".equals(option)) {
            // return checkBalanceService.handle(session, chat);
         }
-
-        return new ChatResponse(getMainMenu());
+        return new ChatResponse("verdict");
     }
 
     private String getMainMenu() {

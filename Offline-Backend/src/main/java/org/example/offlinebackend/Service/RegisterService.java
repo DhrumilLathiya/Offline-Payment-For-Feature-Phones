@@ -19,12 +19,13 @@ public class RegisterService {
     @Autowired
     private WalletRepo walletRepo;
 
-    public ChatResponse handle(UserSession userSession, Chat chat) {
+    public ChatResponse Register(UserSession userSession, Chat chat) {
 
         ChatResponse chatResponse = new ChatResponse();
         Wallet wallet1 = walletRepo.findByphonenumber(chat.getPhone());
         if(wallet1 != null) {
                 chatResponse.setReply("alreay register");
+                userSessionRepo.delete(userSession);
                 return chatResponse;
         }
         /* STEP 1: Ask for Debit Card */
@@ -107,6 +108,7 @@ public class RegisterService {
             wallet.setPin(chat.getMessage());
             wallet.setBalance(0);
             wallet.setStatus("ACTIVE");
+            userSession.setUser_status(null);
 
             AccInformation acc = accInformationRepo
                     .findById(chat.getPhone())
