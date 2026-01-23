@@ -1,10 +1,17 @@
+import { useState } from "react";
+import Login from "./components/login";
 import ChatBox from "./components/ChatBox";
 
-import "./App.css";
+export default function App() {
+  const [phone, setPhone] = useState(null);
 
-
-function App() {
-  return <ChatBox />;
+  return (
+    <div className="h-full w-full bg-neutral-900 flex items-center justify-center">
+      {!phone ? (
+        <Login onLogin={setPhone} />
+      ) : (
+        <ChatBox phone={phone} />
+      )}
+    </div>
+  );
 }
-
-export default App;
