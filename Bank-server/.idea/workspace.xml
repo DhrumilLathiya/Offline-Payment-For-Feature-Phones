@@ -5,26 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe4f42bf-fc8a-4ef9-9464-0081acb2ace5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bankserver/BankServerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bankserver/Controller/hello.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/bankserver/BankServerApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Bankend/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Bankend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Bankend/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Bankend/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Bankend/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Bankend/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Bankend/src/main/java/org/example/offlinebankend/OfflineBankendApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Bankend/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Bankend/src/test/java/org/example/offlinebankend/OfflineBankendApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ussd-ui/simulator/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ussd-ui/simulator/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/ChatService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +78,7 @@
       <updated>1769103926135</updated>
       <workItem from="1769103927535" duration="3064000" />
       <workItem from="1769111036638" duration="44000" />
+      <workItem from="1769158883118" duration="15000" />
     </task>
     <servers />
   </component>

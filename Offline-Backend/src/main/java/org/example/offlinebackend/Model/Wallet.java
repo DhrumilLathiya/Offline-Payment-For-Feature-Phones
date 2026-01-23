@@ -17,7 +17,7 @@ public class Wallet {
     int balance;
     int reserved_balance;
     String phonenumber;
-    int pin;
+    String pin;
     String status;
     @OneToOne(cascade = CascadeType.ALL)
     AccInformation accInformation;
