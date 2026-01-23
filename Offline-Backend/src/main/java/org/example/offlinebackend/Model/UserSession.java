@@ -14,10 +14,16 @@ import java.time.LocalDateTime;
 @Table(name="UserSession")
 public class UserSession {
     @Id
-    String phone_number;
-    String current_status;
+    private String phone_number;
+
+    private String current_status;
     String message;
-    String user_status;
+    private Integer amount;
+    private String receiver_mobile;
+    private Integer pin_attempts;
+
+    private String user_status;
+
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 }

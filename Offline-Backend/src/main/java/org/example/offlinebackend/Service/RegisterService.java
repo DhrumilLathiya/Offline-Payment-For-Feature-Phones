@@ -93,7 +93,6 @@ public class RegisterService {
             return chatResponse;
         }
 
-        /* STEP 5: Confirm Wallet PIN */
         if ("CONFIRM_PIN".equals(userSession.getCurrent_status())) {
 
             if (!userSession.getMessage().equals(chat.getMessage())) {
@@ -116,9 +115,7 @@ public class RegisterService {
 
             wallet.setAccInformation(acc);
             walletRepo.save(wallet);
-
             userSessionRepo.delete(userSession);
-
             chatResponse.setReply("🎉 Registration Successful!\nYour wallet is active.");
             return chatResponse;
         }
