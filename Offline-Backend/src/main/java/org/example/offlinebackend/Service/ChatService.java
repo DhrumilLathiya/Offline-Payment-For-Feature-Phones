@@ -70,7 +70,7 @@ public class ChatService {
         }
 
         if ("5".equals(option)) {
-           // return checkBalanceService.handle(session, chat);
+           return checkBalanceService.handel(session, chat);
         }
         return new ChatResponse("verdict");
     }

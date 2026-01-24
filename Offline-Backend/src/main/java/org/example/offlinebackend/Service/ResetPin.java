@@ -32,7 +32,7 @@ public class ResetPin {
         }
 
         if (userSession.getCurrent_status() == null) {
-            userSession.setUser_status("RESET_PIN");
+            userSession.setUser_status(chat.getMessage());
             userSession.setCurrent_status("RESET_MENU");
             userSessionRepo.save(userSession);
 

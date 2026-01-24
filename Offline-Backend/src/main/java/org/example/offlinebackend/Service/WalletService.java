@@ -31,7 +31,7 @@ public class WalletService {
             return response;
         }
 
-        if (session.getCurrent_status() == null) {
+        if(session.getCurrent_status() == null) {
             session.setCurrent_status("SET_AMOUNT");
             userSessionRepo.save(session);
             response.setReply("Enter Amount");
@@ -39,7 +39,6 @@ public class WalletService {
         }
 
         if ("SET_AMOUNT".equals(session.getCurrent_status())) {
-
             int amount;
             try {
                 amount = Integer.parseInt(chat.getMessage());
@@ -47,7 +46,6 @@ public class WalletService {
                 response.setReply("Invalid Amount");
                 return response;
             }
-
             if (sender.getBalance() < amount) {
                 response.setReply("Insufficient Balance"+"\n"+"your current balance:"+sender.getBalance() );
                 return response;

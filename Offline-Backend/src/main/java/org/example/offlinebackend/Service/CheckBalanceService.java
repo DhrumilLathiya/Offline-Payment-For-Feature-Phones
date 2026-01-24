@@ -28,7 +28,7 @@ public class CheckBalanceService {
         }
         if (userSession.getCurrent_status() == null) {
 
-            userSession.setUser_status("CHECK_BALANCE");
+            userSession.setUser_status(chat.getMessage());
             userSession.setCurrent_status("WAITING_PIN");
             userSessionRepo.save(userSession);
 

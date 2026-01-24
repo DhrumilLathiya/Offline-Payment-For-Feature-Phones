@@ -13,15 +13,16 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "payment_token_failed")
-public class PaymentTokenFailed {
+@Table(name = "payment_token_success")
+public class PaymentTokenSuccess {
 
     @Id
     private String tokenId;
+
     private String senderMobile;
     private String receiverMobile;
     private int amount;
     private String status;
 
-    private LocalDateTime failedAt;
+    private LocalDateTime settledAt;
 }

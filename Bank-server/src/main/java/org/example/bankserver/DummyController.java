@@ -1,5 +1,7 @@
 package org.example.bankserver;
 
+import org.example.bankserver.Model.BankUser;
+import org.example.bankserver.Repo.BankUserRepo;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,18 +9,38 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/dummy-bank")
 public class DummyController {
-    @PostMapping("/verify")
-    public BankResponse[] verify(
-            @RequestBody PaymentTokenDTO[] tokens
-    ) {
-        System.out.println("hello");
-        BankResponse[] responses = new BankResponse[tokens.length];
-        for (int i = 0; i < tokens.length; i++) {
-            BankResponse res = new BankResponse();
-            res.setTokenId(tokens[i].getTokenId());
-            boolean success = Math.random() > 0.2;
 
-            res.setStatus(success ? "SUCCESS" : "FAILED");
+    private final BankUserRepo bankUserRepo;
+
+    public DummyController(BankUserRepo bankUserRepo) {
+        this.bankUserRepo = bankUserRepo;
+    }
+
+    @PostMapping("/verify")
+    public BankResponse[] verify(@RequestBody PaymentTokenDTO[] tokens) {
+
+        BankResponse[] responses = new BankResponse[tokens.length];
+
+        for (int i = 0; i < tokens.length; i++) {
+
+            PaymentTokenDTO token = tokens[i];
+            BankResponse res = new BankResponse();
+            res.setTokenId(token.getTokenId());
+
+            BankUser receiver =
+                    bankUserRepo.findById(token.getReceiverMobile()).orElse(null);
+
+            if (receiver == null) {
+                res.setStatus("FAILED");
+                responses[i] = res;
+                continue;
+            }
+
+
+            receiver.setBalance(receiver.getBalance() + token.getAmount());
+            bankUserRepo.save(receiver);
+
+            res.setStatus("SUCCESS");
             responses[i] = res;
         }
         return responses;
