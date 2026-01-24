@@ -19,7 +19,6 @@ public class TokenService {
             String receiverMobileNumber,
             int amount
     ) {
-
         PaymentToken token = new PaymentToken();
         token.setTokenId("TXN-" + UUID.randomUUID().toString().substring(0, 8));
         token.setAmount(amount);

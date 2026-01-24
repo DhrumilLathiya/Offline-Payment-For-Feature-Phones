@@ -21,6 +21,9 @@ public class WalletService {
     public ChatResponse transaction(UserSession session, Chat chat) {
 
         ChatResponse response = new ChatResponse();
+        if(session.getPin_attempts()==null){
+            session.setPin_attempts(0);
+        }
 
         Wallet sender=walletRepo.findByphonenumber(chat.getPhone());
         if(sender==null){
@@ -94,13 +97,11 @@ public class WalletService {
                     walletRepo.findByphonenumber(session.getReceiver_mobile());
 
             sender.setBalance(sender.getBalance() - amount);
-
             PaymentToken token = tokenService.generateToken(
                     sender,
                     receiver.getPhonenumber(),
                     amount
             );
-
             userSessionRepo.delete(session);
             response.setReply(
                     "Payment Token: " + token.getTokenId() +

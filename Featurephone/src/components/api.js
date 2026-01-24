@@ -1,7 +1,7 @@
 export async function sendMessage(phone, message) {
   const res = await fetch("http://localhost:8080/api/chat", {
     method: "POST",
-    headers: {
+    headers:{
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
@@ -9,6 +9,5 @@ export async function sendMessage(phone, message) {
       message
     })
   });
-
-  return res.json(); // { reply: "..." }
+  return res.json();
 }

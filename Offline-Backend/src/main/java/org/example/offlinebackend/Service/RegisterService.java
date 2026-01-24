@@ -9,16 +9,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RegisterService {
-
     @Autowired
     private ACCInformationRepo accInformationRepo;
-
     @Autowired
     private UserSessionRepo userSessionRepo;
-
     @Autowired
     private WalletRepo walletRepo;
-
     public ChatResponse Register(UserSession userSession, Chat chat) {
 
         ChatResponse chatResponse = new ChatResponse();

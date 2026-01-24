@@ -7,7 +7,7 @@ export default function ChatBox({ phone }) {
   ]);
   const [input, setInput] = useState("");
 
-  const send = async () => {
+  const send = async () => {  
     if (!input.trim()) return;
 
     setMessages((prev) => [...prev, { from: "user", text: input }]);

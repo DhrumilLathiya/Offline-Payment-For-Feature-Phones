@@ -23,7 +23,7 @@ public class ChatService {
 
     @Autowired
     WalletService walletService;
-//
+
 //    @Autowired
 
 //    TopupService topupService;
@@ -52,7 +52,6 @@ public class ChatService {
 
         String option = session.getUser_status();
 
-        // Wallet existence check
 
         if ("1".equals(option)) {
             return registerService.Register(session, chat);
@@ -67,7 +66,7 @@ public class ChatService {
         }
 
         if ("4".equals(option)) {
-        //    return resetPin.handle(session, chat);
+            return resetPin.handel(session, chat);
         }
 
         if ("5".equals(option)) {
@@ -75,7 +74,6 @@ public class ChatService {
         }
         return new ChatResponse("verdict");
     }
-
     private String getMainMenu() {
         return "Welcome to Offline Wallet Service\n" +
                 "--------------------------------\n" +

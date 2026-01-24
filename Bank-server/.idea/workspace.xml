@@ -4,8 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe4f42bf-fc8a-4ef9-9464-0081acb2ace5" name="Changes" comment="">
+    <list default="true" id="6c5a57ed-afcf-4109-b26d-b42be33d622e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Controller/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Repo/TokenRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Repo/TokenRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/ChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/ResetPin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/ResetPin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/TokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/TopupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/TopupService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/WalletService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Bankend/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Bankend/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Bankend/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,32 +41,37 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="38cfkesmiIT6eAd8LfEIw7zN3sL" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="38hHFzxMjhFnb9QY34352XYWcSp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dhrumil&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.BankServerApplication.executor": "Run",
+    "git-widget-placeholder": "dhrumil",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="BankServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="Bank-server" />
+      <module name="Bank-Server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.bankserver.BankServerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -71,14 +88,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fe4f42bf-fc8a-4ef9-9464-0081acb2ace5" name="Changes" comment="" />
-      <created>1769103926135</created>
+      <changelist id="6c5a57ed-afcf-4109-b26d-b42be33d622e" name="Changes" comment="" />
+      <created>1769244783676</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1769103926135</updated>
-      <workItem from="1769103927535" duration="3064000" />
-      <workItem from="1769111036638" duration="44000" />
-      <workItem from="1769158883118" duration="15000" />
+      <updated>1769244783676</updated>
+      <workItem from="1769244784584" duration="5323000" />
     </task>
     <servers />
   </component>
