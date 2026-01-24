@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c5a57ed-afcf-4109-b26d-b42be33d622e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Model/PaymentTokenFailed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Repo/TokenFailedRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Repo/TokenSuccessRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bankserver/DummyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bankserver/DummyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Featurephone/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Featurephone/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Model/UserMobile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Model/UserMobile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/WalletService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Controller/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Repo/TokenFailedRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Repo/TokenFailedRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Repo/TokenSuccessRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Repo/TokenSuccessRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/ChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/TopupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/TopupService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/WalletSyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/WalletSyncService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,37 +39,38 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="38hHFzxMjhFnb9QY34352XYWcSp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.BankServerApplication.executor": "Run",
-    "git-widget-placeholder": "dhrumil",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BankServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dhrumil&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Offline-Payment-For-Feature-Phones1/Offline-Payment-For-Feature-Phones/Bank-server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="BankServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="Bank-Server" />
+      <module name="Offline-Backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.bankserver.BankServerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -91,6 +93,10 @@
       <option name="presentableId" value="Default" />
       <updated>1769244783676</updated>
       <workItem from="1769244784584" duration="15309000" />
+      <workItem from="1769286865418" duration="4814000" />
+      <workItem from="1769292216052" duration="159000" />
+      <workItem from="1769292470721" duration="473000" />
+      <workItem from="1769292965032" duration="29000" />
     </task>
     <servers />
   </component>

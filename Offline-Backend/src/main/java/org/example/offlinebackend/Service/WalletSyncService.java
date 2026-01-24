@@ -28,6 +28,10 @@ public class WalletSyncService {
 
     @Autowired
     TokenFailedRepo failedRepo;
+
+    @Autowired
+    org.example.offlinebackend.Util.JwtUtil jwtUtil;
+
     public String tokenSync(UserMobile userMobile) {
 
         List<PaymentToken> tokens =
@@ -44,12 +48,31 @@ public class WalletSyncService {
             dto.setAmount(token.getAmount());
             dtoList.add(dto);
         }
-        BankResponse[] responses =
-                restTemplate.postForObject(
+
+        // Generate JWT
+        String tokenStr = jwtUtil.generateToken("OfflineBackend");
+
+        // Set Headers
+        org.springframework.http.HttpHeaders headers = new org.springframework.http.HttpHeaders();
+        headers.set("Authorization", "Bearer " + tokenStr);
+        headers.setContentType(org.springframework.http.MediaType.APPLICATION_JSON);
+
+        org.springframework.http.HttpEntity<List<PaymentTokenDTO>> entity =
+                new org.springframework.http.HttpEntity<>(dtoList, headers);
+
+        // Send Request with Headers
+        org.springframework.http.ResponseEntity<BankResponse[]> responseEntity =
+                restTemplate.exchange(
                         "http://localhost:9090/dummy-bank/verify",
-                        dtoList,
+                        org.springframework.http.HttpMethod.POST,
+                        entity,
                         BankResponse[].class
                 );
+
+        BankResponse[] responses = responseEntity.getBody();
+
+        if (responses == null) return "FAILED";
+
         for (BankResponse res : responses) {
 
             PaymentToken token =

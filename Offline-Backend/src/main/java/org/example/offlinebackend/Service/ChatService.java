@@ -24,9 +24,8 @@ public class ChatService {
     @Autowired
     WalletService walletService;
 
-//    @Autowired
-
-//    TopupService topupService;
+    @Autowired
+    TopupService topupService;
 
     @Autowired
     ResetPin resetPin;
@@ -62,8 +61,9 @@ public class ChatService {
         }
 
         if ("3".equals(option)) {
-            //return topupService.handle(session, chat);
+            return topupService.topUp(session, chat);
         }
+
 
         if ("4".equals(option)) {
             return resetPin.handel(session, chat);

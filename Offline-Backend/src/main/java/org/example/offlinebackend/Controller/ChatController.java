@@ -1,16 +1,22 @@
 package org.example.offlinebackend.Controller;
 
-import org.example.offlinebackend.Model.Chat;
-import org.example.offlinebackend.Model.ChatResponse;
-import org.example.offlinebackend.Model.UserMobile;
+import org.example.offlinebackend.Model.*;
+import org.example.offlinebackend.Repo.TokenFailedRepo;
+import org.example.offlinebackend.Repo.TokenSuccessRepo;
 import org.example.offlinebackend.Service.ChatService;
 import org.example.offlinebackend.Service.WalletSyncService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins="http://localhost:5173")
 public class ChatController {
+    @Autowired
+    TokenFailedRepo tokenFailedRepo;
+    @Autowired
+    TokenSuccessRepo  tokenSuccessRepo;
     @Autowired
     WalletSyncService  walletSyncService;
     @Autowired
@@ -27,12 +33,20 @@ public class ChatController {
         walletSyncService.tokenSync(userMobile);
     }
 
-    @GetMapping("token/success")
-    public void tokenSuccess(@RequestBody UserMobile userMobile) {
+    @GetMapping("/token/success")
+    public List<PaymentTokenSuccess> tokenSuccess(
+            @RequestParam String phoneNo
+    ) {
+        return tokenSuccessRepo.findBySenderMobile(phoneNo);
     }
 
-    @GetMapping("token/failure")
-    public void GetChat(@RequestBody UserMobile userMobile) {
+
+    @GetMapping("/token/failure")
+    public List<PaymentTokenFailed> tokenFailure(
+            @RequestParam String phoneNo
+    ) {
+        return tokenFailedRepo.findBySenderMobile(phoneNo);
     }
+
 
 }

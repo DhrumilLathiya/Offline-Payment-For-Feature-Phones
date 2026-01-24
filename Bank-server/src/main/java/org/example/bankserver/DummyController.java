@@ -1,11 +1,13 @@
 package org.example.bankserver;
 
+import org.example.bankserver.Model.BankTopupDTO;
+import org.example.bankserver.Util.JwtUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.example.bankserver.Model.BankUser;
 import org.example.bankserver.Repo.BankUserRepo;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 @RestController
 @RequestMapping("/dummy-bank")
 public class DummyController {
@@ -16,8 +18,25 @@ public class DummyController {
         this.bankUserRepo = bankUserRepo;
     }
 
+    @Autowired
+    org.example.bankserver.Util.JwtUtil jwtUtil;
+
     @PostMapping("/verify")
-    public BankResponse[] verify(@RequestBody PaymentTokenDTO[] tokens) {
+    public org.springframework.http.ResponseEntity<?> verify(
+            @RequestBody PaymentTokenDTO[] tokens,
+            @org.springframework.web.bind.annotation.RequestHeader(value = "Authorization", required = false) String authHeader
+    ) {
+
+        // 1. Verify JWT
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            return org.springframework.http.ResponseEntity.status(401).body("Missing or invalid Authorization header");
+        }
+
+        String tokenStr = authHeader.substring(7);
+        if (!jwtUtil.validateToken(tokenStr)) {
+            return org.springframework.http.ResponseEntity.status(401).body("Invalid Token");
+        }
+
 
         BankResponse[] responses = new BankResponse[tokens.length];
 
@@ -39,10 +58,27 @@ public class DummyController {
 
             receiver.setBalance(receiver.getBalance() + token.getAmount());
             bankUserRepo.save(receiver);
-
-            res.setStatus("SUCCESS");
+            boolean flag= Math.random() > 0.5;
+            if(flag==true){
+                res.setStatus("SUCCESS");
+            }else {
+                res.setStatus("FAILED");
+            }
             responses[i] = res;
         }
-        return responses;
+        return org.springframework.http.ResponseEntity.ok(responses);
+    }
+
+    @PostMapping("/topup")
+    public void topup(
+            @RequestBody BankTopupDTO dto,
+            @RequestHeader("Authorization") String auth
+    ) {
+        jwtUtil.validateToken(auth.substring(7));
+
+        BankUser user = bankUserRepo.findById(dto.getPhoneNo()).get();
+
+        user.setBalance(user.getBalance() - dto.getAmount());
+        bankUserRepo.save(user);
     }
 }
