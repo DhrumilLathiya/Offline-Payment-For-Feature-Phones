@@ -80,12 +80,10 @@ public class WalletSyncService {
 
             if ("FAILED".equals(res.getStatus())) {
 
-
                 Wallet sender =
                         walletRepo.findByphonenumber(token.getSenderMobile());
                 sender.setBalance(sender.getBalance() + token.getAmount());
                 walletRepo.save(sender);
-
 
                 PaymentTokenFailed failed = new PaymentTokenFailed();
                 failed.setTokenId(token.getTokenId());
@@ -94,7 +92,6 @@ public class WalletSyncService {
                 failed.setAmount(token.getAmount());
                 failed.setStatus("FAILED");
                 failed.setFailedAt(LocalDateTime.now());
-
                 failedRepo.save(failed);
             }
             else if ("SUCCESS".equals(res.getStatus())) {

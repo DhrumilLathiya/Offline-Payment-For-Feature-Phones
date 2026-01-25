@@ -27,7 +27,6 @@ public class DummyController {
             @org.springframework.web.bind.annotation.RequestHeader(value = "Authorization", required = false) String authHeader
     ) {
 
-        // 1. Verify JWT
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             return org.springframework.http.ResponseEntity.status(401).body("Missing or invalid Authorization header");
         }
@@ -55,12 +54,11 @@ public class DummyController {
                 continue;
             }
 
-
-            receiver.setBalance(receiver.getBalance() + token.getAmount());
-            bankUserRepo.save(receiver);
-            boolean flag=Math.random()>0.5;
+            boolean flag=true;
             if(flag==true){
                 res.setStatus("SUCCESS");
+                receiver.setBalance(receiver.getBalance() + token.getAmount());
+                bankUserRepo.save(receiver);
             }else {
                 res.setStatus("FAILED");
             }

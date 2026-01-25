@@ -62,7 +62,6 @@ public class TopupService {
             return response;
         }
 
-        /* ---------- STEP 1: ASK PIN ---------- */
         if (session.getCurrent_status() == null) {
             session.setUser_status(chat.getMessage());
             session.setCurrent_status("TOPUP_PIN");
@@ -71,7 +70,6 @@ public class TopupService {
             return response;
         }
 
-        /* ---------- STEP 2: VERIFY PIN ---------- */
         if ("TOPUP_PIN".equals(session.getCurrent_status())) {
 
             if (!wallet.getPin().equals(msg)) {

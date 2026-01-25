@@ -21,6 +21,7 @@ public class ChatController {
     WalletSyncService  walletSyncService;
     @Autowired
     ChatService chatService;
+
     @PostMapping("api/chat")
      public ChatResponse sendMessage(@RequestBody Chat chat) {
         System.out.println("Hello World");

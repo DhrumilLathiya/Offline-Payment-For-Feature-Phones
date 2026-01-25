@@ -161,7 +161,7 @@ public class WalletService {
             userSessionRepo.delete(session);
 
             response.setReply(
-                    "Payment Token: " + "CREATED"+
+                    "Payment Token: " + token.getTokenId()+
                             "\nAmount: " + amount +
                             "\nStatus: CREATED"
             );
