@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c5a57ed-afcf-4109-b26d-b42be33d622e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bankserver/DummyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bankserver/DummyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Controller/ChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Repo/TokenFailedRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Repo/TokenFailedRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Repo/TokenSuccessRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Repo/TokenSuccessRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/ChatService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/TopupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/TopupService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/WalletSyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Offline-Backend/src/main/java/org/example/offlinebackend/Service/WalletSyncService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +87,8 @@
       <workItem from="1769292216052" duration="159000" />
       <workItem from="1769292470721" duration="473000" />
       <workItem from="1769292965032" duration="29000" />
+      <workItem from="1769293499909" duration="489000" />
+      <workItem from="1769310143325" duration="645000" />
     </task>
     <servers />
   </component>
