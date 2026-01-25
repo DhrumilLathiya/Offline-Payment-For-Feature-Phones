@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
+import java.util.Random;
+
 @Service
 public class ChatService {
 
@@ -35,22 +37,55 @@ public class ChatService {
 
     public ChatResponse ChatHandel(Chat chat) {
 
-        UserSession session=userSessionRepo.findById(chat.getPhone()).orElse(null);
-        if(session==null){
-            UserSession session1=new UserSession();
-            session1.setPhone_number(chat.getPhone());
-            userSessionRepo.save(session1);
-            return new ChatResponse(getMainMenu());
+        Wallet wallet = walletRepo.findByphonenumber(chat.getPhone());
+
+        if (wallet != null &&
+                wallet.getPinBlockedUntil() != null &&
+                wallet.getPinBlockedUntil().isAfter(java.time.LocalDateTime.now())) {
+
+            return new ChatResponse(
+                    "❌ You are blocked due to wrong PIN attempts.\n" +
+                            "Please try again after 24 hours."
+            );
+        }
+        UserSession session = userSessionRepo
+                .findById(chat.getPhone())
+                .orElse(null);
+
+        if (session == null) {
+            UserSession newSession = new UserSession();
+            newSession.setPhone_number(chat.getPhone());
+            newSession.setCaptchaVerified(false);
+
+            String captcha = String.valueOf(1000 + new Random().nextInt(9000));
+            newSession.setCaptchaCode(captcha);
+
+            userSessionRepo.save(newSession);
+
+            return new ChatResponse(
+                    "Please reply with this number: " + captcha
+            );
         }
 
-        // First-time user → show menu
+
+        if (!Boolean.TRUE.equals(session.getCaptchaVerified())) {
+
+            if (chat.getMessage().equals(session.getCaptchaCode())) {
+                session.setCaptchaVerified(true);
+                session.setCaptchaCode(null);
+                userSessionRepo.save(session);
+                return new ChatResponse(getMainMenu());
+            } else {
+                return new ChatResponse("Wrong number. Try again:");
+            }
+        }
+
         if (session.getUser_status() == null) {
             session.setUser_status(chat.getMessage());
             userSessionRepo.save(session);
         }
 
         String option = session.getUser_status();
-
 
         if ("1".equals(option)) {
             return registerService.Register(session, chat);
@@ -64,7 +99,6 @@ public class ChatService {
             return topupService.topUp(session, chat);
         }
 
-
         if ("4".equals(option)) {
             return resetPin.handel(session, chat);
         }
@@ -72,6 +106,7 @@ public class ChatService {
         if ("5".equals(option)) {
            return checkBalanceService.handel(session, chat);
         }
+        userSessionRepo.delete(session);
         return new ChatResponse("verdict");
     }
     private String getMainMenu() {

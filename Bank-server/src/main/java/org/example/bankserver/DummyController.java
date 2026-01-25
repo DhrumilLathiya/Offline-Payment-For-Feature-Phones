@@ -58,7 +58,7 @@ public class DummyController {
 
             receiver.setBalance(receiver.getBalance() + token.getAmount());
             bankUserRepo.save(receiver);
-            boolean flag= Math.random() > 0.5;
+            boolean flag=Math.random()>0.5;
             if(flag==true){
                 res.setStatus("SUCCESS");
             }else {

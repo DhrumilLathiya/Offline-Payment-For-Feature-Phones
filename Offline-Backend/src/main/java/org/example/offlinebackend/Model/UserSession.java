@@ -21,7 +21,8 @@ public class UserSession {
     private Integer amount;
     private String receiver_mobile;
     private Integer pin_attempts;
-
+    private Boolean captchaVerified;
+    private String captchaCode;
     private String user_status;
 
     @Column(nullable = false)

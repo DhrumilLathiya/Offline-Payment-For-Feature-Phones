@@ -37,12 +37,12 @@ public class TopupService {
         ChatResponse response = new ChatResponse();
 
         if (chat == null || chat.getPhone() == null) {
-            response.setReply("❌ Invalid request.");
+            response.setReply(" Invalid request.");
             return response;
         }
 
         if (session == null) {
-            response.setReply("❌ Session expired. Please try again.");
+            response.setReply(" Session expired. Please try again.");
             return response;
         }
 
@@ -51,14 +51,14 @@ public class TopupService {
 
         if (wallet == null) {
             userSessionRepo.delete(session);
-            response.setReply("❌ Wallet not found.");
+            response.setReply("Wallet not found.");
             return response;
         }
 
         if (wallet.getStatus() != null &&
                 !"ACTIVE".equalsIgnoreCase(wallet.getStatus())) {
             userSessionRepo.delete(session);
-            response.setReply("❌ Wallet is not active.");
+            response.setReply(" Wallet is not active.");
             return response;
         }
 

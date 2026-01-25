@@ -6,6 +6,8 @@ import org.example.offlinebackend.Repo.WalletRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 public class WalletService {
 
@@ -27,7 +29,8 @@ public class WalletService {
 
         Wallet sender=walletRepo.findByphonenumber(chat.getPhone());
         if(sender==null){
-            response.setReply("first you register");
+            response.setReply("first you register and again restart type bank");
+            userSessionRepo.delete(session);
             return response;
         }
 
@@ -47,7 +50,8 @@ public class WalletService {
                 return response;
             }
             if (sender.getBalance() < amount) {
-                response.setReply("Insufficient Balance"+"\n"+"your current balance:"+sender.getBalance() );
+                response.setReply("Insufficient Balance"+"\n"+"your current balance:"+sender.getBalance() +"you again type bank to restart");
+                userSessionRepo.delete(session);
                 return response;
             }
 
@@ -57,14 +61,8 @@ public class WalletService {
             response.setReply("Enter receiver mobile number");
             return response;
         }
-        //mobile number
-        if ("SET_MOBILE".equals(session.getCurrent_status())) {
 
-            Wallet receiver = walletRepo.findByphonenumber(chat.getMessage());
-            if (receiver == null) {
-                response.setReply("Receiver not registered in wallet");
-                return response;
-            }
+        if ("SET_MOBILE".equals(session.getCurrent_status())) {
 
             session.setReceiver_mobile(chat.getMessage());
             session.setCurrent_status("SET_PIN");
@@ -74,37 +72,98 @@ public class WalletService {
             return response;
         }
 
+//        if ("SET_PIN".equals(session.getCurrent_status())) {
+//
+//            if (!sender.getPin().equals(chat.getMessage())) {
+//
+//                if (session.getPin_attempts() == 2) {
+//                    response.setReply("You are blocked for 24 hours");
+//                    userSessionRepo.delete(session);
+//                    return response;
+//                }
+//
+//                response.setReply("Wrong PIN. 3 wrong attempts will block you");
+//                session.setPin_attempts(session.getPin_attempts() + 1);
+//                userSessionRepo.save(session);
+//                return response;
+//            }
+//
+//            int amount = session.getAmount();
+//            Wallet receiver =
+//                    walletRepo.findByphonenumber(session.getReceiver_mobile());
+//
+//            sender.setBalance(sender.getBalance() - amount);
+//            PaymentToken token = tokenService.generateToken(
+//                    sender,
+//                    receiver.getPhonenumber(),
+//                    amount
+//            );
+//            userSessionRepo.delete(session);
+//            response.setReply(
+//                    "Payment Token: " + token.getTokenId() +
+//                            "\nAmount: " + amount +
+//                            "\nStatus: PENDING"
+//            );
+//            return response;
+//        }
         if ("SET_PIN".equals(session.getCurrent_status())) {
+
 
             if (!sender.getPin().equals(chat.getMessage())) {
 
-                if (session.getPin_attempts() == 2) {
-                    response.setReply("You are blocked for 24 hours");
+                if (sender.getPinAttempts() == null) {
+                    sender.setPinAttempts(0);
+                }
+
+                sender.setPinAttempts(sender.getPinAttempts() + 1);
+
+                if (sender.getPinAttempts() >= 3) {
+                    sender.setPinBlockedUntil(
+                            LocalDateTime.now().plusHours(24)
+                    );
+                    walletRepo.save(sender);
+
                     userSessionRepo.delete(session);
+
+                    response.setReply(
+                            "❌ Wrong PIN entered 3 times.\n" +
+                                    "You are blocked for 24 hours."
+                    );
                     return response;
                 }
 
-                response.setReply("Wrong PIN. 3 wrong attempts will block you");
-                session.setPin_attempts(session.getPin_attempts() + 1);
-                userSessionRepo.save(session);
+                walletRepo.save(sender);
+
+                response.setReply(
+                        "Wrong PIN. Attempts left: " +
+                                (3 - sender.getPinAttempts())
+                );
                 return response;
             }
+
+            sender.setPinAttempts(0);
+            sender.setPinBlockedUntil(null);
 
             int amount = session.getAmount();
             Wallet receiver =
                     walletRepo.findByphonenumber(session.getReceiver_mobile());
 
             sender.setBalance(sender.getBalance() - amount);
+
+            walletRepo.save(sender);
+
             PaymentToken token = tokenService.generateToken(
                     sender,
                     receiver.getPhonenumber(),
                     amount
             );
+
             userSessionRepo.delete(session);
+
             response.setReply(
-                    "Payment Token: " + token.getTokenId() +
+                    "Payment Token: " + "CREATED"+
                             "\nAmount: " + amount +
-                            "\nStatus: PENDING"
+                            "\nStatus: CREATED"
             );
             return response;
         }

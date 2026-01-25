@@ -24,7 +24,7 @@ public class RegisterService {
                 userSessionRepo.delete(userSession);
                 return chatResponse;
         }
-        /* STEP 1: Ask for Debit Card */
+
         if (userSession.getCurrent_status() == null) {
             userSession.setCurrent_status("WAITING_DEBITCARD");
             userSessionRepo.save(userSession);
@@ -32,7 +32,6 @@ public class RegisterService {
             return chatResponse;
         }
 
-        /* STEP 2: Receive Debit Card */
         if ("WAITING_DEBITCARD".equals(userSession.getCurrent_status())) {
 
             AccInformation accInformation = accInformationRepo
@@ -44,7 +43,7 @@ public class RegisterService {
 
                 chatResponse.setReply(
                         "Debit card not found or KYC not completed.\n" +
-                                "Send any message to restart."
+                                "Send any message bank to restart."
                 );
                 userSessionRepo.delete(userSession);
                 return chatResponse;
@@ -66,7 +65,7 @@ public class RegisterService {
                     .orElse(null);
 
             if (!accInformation.getDebitCard_Pin().equals(chat.getMessage())) {
-                chatResponse.setReply("❌ Wrong Debit Card PIN. Try again.");
+                chatResponse.setReply("Wrong Debit Card PIN. Try again.");
                 userSessionRepo.delete(userSession);
                 return chatResponse;
             }

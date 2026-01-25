@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,8 @@ public class Wallet {
     String phonenumber;
     String pin;
     String status;
+    private Integer pinAttempts;
+    private LocalDateTime pinBlockedUntil;
     @OneToOne(cascade = CascadeType.ALL)
     AccInformation accInformation;
     @OneToMany(mappedBy = "senderWallet", cascade = CascadeType.ALL)

@@ -49,10 +49,9 @@ public class WalletSyncService {
             dtoList.add(dto);
         }
 
-        // Generate JWT
         String tokenStr = jwtUtil.generateToken("OfflineBackend");
 
-        // Set Headers
+
         org.springframework.http.HttpHeaders headers = new org.springframework.http.HttpHeaders();
         headers.set("Authorization", "Bearer " + tokenStr);
         headers.setContentType(org.springframework.http.MediaType.APPLICATION_JSON);
@@ -60,14 +59,13 @@ public class WalletSyncService {
         org.springframework.http.HttpEntity<List<PaymentTokenDTO>> entity =
                 new org.springframework.http.HttpEntity<>(dtoList, headers);
 
-        // Send Request with Headers
+
         org.springframework.http.ResponseEntity<BankResponse[]> responseEntity =
                 restTemplate.exchange(
                         "http://localhost:9090/dummy-bank/verify",
                         org.springframework.http.HttpMethod.POST,
                         entity,
-                        BankResponse[].class
-                );
+                        BankResponse[].class);
 
         BankResponse[] responses = responseEntity.getBody();
 
@@ -81,6 +79,7 @@ public class WalletSyncService {
             if (token == null) continue;
 
             if ("FAILED".equals(res.getStatus())) {
+
 
                 Wallet sender =
                         walletRepo.findByphonenumber(token.getSenderMobile());
