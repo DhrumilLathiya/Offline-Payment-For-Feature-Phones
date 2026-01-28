@@ -1,0 +1,33 @@
+services:
+  # Backend Service
+  - type: web
+    name: offline-backend
+    runtime: java
+    rootDir: Offline-Backend
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/Offline-Backend-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: JAVA_VERSION
+        value: 17
+      - key: SPRING_DATASOURCE_URL
+        sync: false # You will enter this in Render Dashboard
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false # You will enter this in Render Dashboard
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false # You will enter this in Render Dashboard
+      - key: BANK_SERVER_URL
+        fromService:
+          type: web
+          name: bank-server
+          property: url
+
+  # Bank Server Service
+  - type: web
+    name: bank-server
+    runtime: java
+    rootDir: Bank-server
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/Bank-Server-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: JAVA_VERSION
+        value: 21
