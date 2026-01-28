@@ -54,7 +54,7 @@ public class DummyController {
                 continue;
             }
 
-            boolean flag=true;
+            boolean flag=false;
             if(flag==true){
                 res.setStatus("SUCCESS");
                 receiver.setBalance(receiver.getBalance() + token.getAmount());
