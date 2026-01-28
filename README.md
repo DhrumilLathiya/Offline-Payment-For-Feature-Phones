@@ -32,25 +32,26 @@ The system uses:
 ## 🏗️ High-Level Architecture
 
 ### 🔹 Final System Architecture
-![Final SMS Payment System](docs/images/final%20sms%20payment%20system.png)
+![Final SMS Payment System](docs/images/final_sms_payment_system.png)
 
 ### 🔹 Registration Flow
-![Registration Flow](docs/images/Registration%20flow.png)
+![Registration Flow](docs/images/registration_flow.png)
 
 ### 🔹 Check Bank Balance Flow
-![Check Bank Balance Flow](docs/images/check%20bank%20balance%20flow.png)
+![Check Bank Balance Flow](docs/images/check_bank_balance_flow.png)
 
 ### 🔹 Reset PIN Flow
-![Reset PIN Flow](docs/images/reset%20pin%20flow.png)
+![Reset PIN Flow](docs/images/reset_pin_flow.png)
 
 ### 🔹 Money Transfer Flow
-![Money Transfer Flow](docs/images/sequence%20of%20money%20transfer%20flow.png)
+![Money Transfer Flow](docs/images/money_transfer_flow.png)
 
 ### 🔹 Top-Up Flow
-![Top-Up Flow](docs/images/top%20up%20flow.png)
+![Top-Up Flow](docs/images/top_up_flow.png)
 
 ### 🔹 Wallet–Bank Settlement Flow
-![Wallet Bank Settlement Flow](docs/images/Wallet%26Bank%20Settlement%20Flow.png)
+![Wallet Bank Settlement Flow](docs/images/wallet_bank_settlement_flow.png)
+
 
 ---
 
