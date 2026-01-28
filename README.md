@@ -32,7 +32,7 @@ The system uses:
 ## 🏗️ High-Level Architecture
 
 ### 🔹 Final System Architecture
-![Final SMS Payment System](docs/images/final_sms_payment_system.png)
+![Final SMS Payment System](docs/docs/images/final_sms_payment_system.png)
 
 ### 🔹 Registration Flow
 ![Registration Flow](docs/images/registration_flow.png)
