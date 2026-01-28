@@ -35,7 +35,7 @@ The system uses:
 ![Final SMS Payment System](docs/docs/images/final_sms_payment_system.png)
 
 ### 🔹 Registration Flow
-![Registration Flow](docs/docs/images/registration_flow.png)
+![Registration Flow](docs/docs/images/Registration_flow.png)
 
 ### 🔹 Check Bank Balance Flow
 ![Check Bank Balance Flow](docs/docs/images/check_bank_balance_flow.png)
@@ -44,13 +44,13 @@ The system uses:
 ![Reset PIN Flow](docs/docs/images/reset_pin_flow.png)
 
 ### 🔹 Money Transfer Flow
-![Money Transfer Flow](docs/docs/images/money_transfer_flow.png)
+![Money Transfer Flow](docs/docs/images/sequence_of_money_transfer_flow.png)
 
 ### 🔹 Top-Up Flow
 ![Top-Up Flow](docs/docs/images/top_up_flow.png)
 
 ### 🔹 Wallet–Bank Settlement Flow
-![Wallet Bank Settlement Flow](docs/docs/images/wallet_bank_settlement_flow.png)
+![Wallet Bank Settlement Flow](docs/docs/images/Wallet&Bank_Settlement_Flow.png)
 
 
 ---
