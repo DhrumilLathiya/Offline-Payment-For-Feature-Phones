@@ -41,7 +41,7 @@ The system uses:
 ![Check Bank Balance Flow](docs/images/check_bank_balance_flow.png)
 
 ### 🔹 Reset PIN Flow
-![Reset PIN Flow](docs/images/reset_pin_flow.png)
+![Reset PIN Flow](docs/docs/images/reset_pin_flow.png)
 
 ### 🔹 Money Transfer Flow
 ![Money Transfer Flow](docs/images/money_transfer_flow.png)
