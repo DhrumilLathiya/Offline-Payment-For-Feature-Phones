@@ -29,15 +29,14 @@ The system uses **SMS for user interaction**, **PIN + one-time tokens for securi
 ## 🏗️ High-Level Architecture
 
 ```
-User (Feature Phone)
-        |
-        |  SMS
-        v
-Offline Wallet Backend (Spring Boot)
-        |
-        |  JWT (HTTPS)
-        v
-Bank / NPCI Server
+<img width="1045" height="800" alt="check bank balance flow" src="https://github.com/user-attachments/assets/481ec99e-1a6b-4475-82f7-00130a399994" />
+<img width="8192" height="6398" alt="final sms payment system" src="https://github.com/user-attachments/assets/8de49e40-d308-4a36-926a-31f4f14392a7" />
+<img width="1318" height="1719" alt="Registration flow" src="https://github.com/user-attachments/assets/254429b5-488a-424f-a6e0-7de300ee1983" />
+<img width="1147" height="2084" alt="reset pin flow" src="https://github.com/user-attachments/assets/9636ca99-b052-4bbc-aa18-4572242c1c79" />
+<img width="1417" height="1457" alt="sequence of money transfer flow" src="https://github.com/user-attachments/assets/390a1e20-26c5-4c8d-8993-30c97b5babc6" />
+<img width="1383" height="1269" alt="top up flow" src="https://github.com/user-attachments/assets/15f06ef9-3de0-409b-8ae0-8b02e5e81f4c" />
+<img width="1623" height="936" alt="Wallet Bank Settlement Flow" src="https://github.com/user-attachments/assets/d0975b70-6d99-4d12-967a-ea52229bcfca" />
+
 ```
 
 ---
