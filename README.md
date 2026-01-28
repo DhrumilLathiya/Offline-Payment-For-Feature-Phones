@@ -35,7 +35,7 @@ The system uses:
 ![Final SMS Payment System](docs/docs/images/final_sms_payment_system.png)
 
 ### 🔹 Registration Flow
-![Registration Flow](docs/images/registration_flow.png)
+![Registration Flow](docs/docs/images/registration_flow.png)
 
 ### 🔹 Check Bank Balance Flow
 ![Check Bank Balance Flow](docs/images/check_bank_balance_flow.png)
